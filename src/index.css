@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: darkgreen;
+  background-color: darkgreen !important;
 }
 
 code {
@@ -13,20 +13,28 @@ code {
     monospace;
 }
 .custom-navbar {
-  background-color: #006400; /* Cambia este valor por el color verde oscuro deseado */
-  color: #fff; /* Cambia el color del texto si es necesario */
+  background-color:gray; 
+  color: #fff; 
 }
 .cart-container {
   display: flex;
-  align-items: center; /* Centra verticalmente */
-  margin-left: auto;   /* Empuja el widget del carrito hacia la derecha */
+  align-items: center; 
+  margin-left: auto;  
 }
 .custom-brand {
-  color: #fff; /* Cambia el color del título si es necesario */
-  /* Otros estilos personalizados para el título */
+  color: #fff; 
+  margin-right: auto !important;
+  
+
 }
 
 .custom-link {
-  color: #fff; /* Cambia el color de los enlaces si es necesario */
-  /* Otros estilos personalizados para los enlaces */
+  color: #fff; 
+  margin-left: auto !important;
+ 
+}
+.brand-image {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
 }

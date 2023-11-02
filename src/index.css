@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: darkgreen;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.custom-navbar {
+  background-color: #006400; /* Cambia este valor por el color verde oscuro deseado */
+  color: #fff; /* Cambia el color del texto si es necesario */
+}
+.cart-container {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  margin-left: auto;   /* Empuja el widget del carrito hacia la derecha */
+}
+.custom-brand {
+  color: #fff; /* Cambia el color del título si es necesario */
+  /* Otros estilos personalizados para el título */
+}
+
+.custom-link {
+  color: #fff; /* Cambia el color de los enlaces si es necesario */
+  /* Otros estilos personalizados para los enlaces */
+}

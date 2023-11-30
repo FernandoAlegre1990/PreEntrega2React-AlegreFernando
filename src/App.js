@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import CartPage from './components/CartPage/CartPage';
-import AboutUs from './components/AboutUsSection/AboutUs'
+
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -39,9 +39,10 @@ function App() {
           <Route path="/" element={<ItemListContainer addToCart={addToCart} />} />
           <Route path="/products/:id" element={<ProductDetail addToCart={addToCart} />} />
           <Route path="/cart" element={<CartPage cartItems={cartItems} />} />
-          <Route path="/about-us" element={<AboutUs />} />
+          
+          <Route path="/category/:categoryId" element={<ItemListContainer addToCart={addToCart} />} />
         </Routes>
-        <AboutUs/>
+        
       </div>
     </Router>
   );

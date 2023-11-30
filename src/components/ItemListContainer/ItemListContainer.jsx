@@ -1,22 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { fetchProducts } from '../../data/api';
 import { Link } from 'react-router-dom';
 import './Home.css'; 
 function ItemListContainer({ addToCart }) {
   const [products, setProducts] = useState([]);
 
+  const {categoryId} = useParams()
+
   useEffect(() => {
+
     async function fetchProductData() {
+
       try {
-        const productsData = await fetchProducts();
+
+        const productsData = await fetchProducts(categoryId);
+
         setProducts(productsData);
+
       } catch (error) {
+
         
+
       }
+
     }
 
+
+
     fetchProductData();
-  }, []);
+
+  }, [categoryId]);
 
   return (
     <div>

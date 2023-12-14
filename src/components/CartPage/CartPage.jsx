@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './CartPage.css'; // Import your CSS file
+import { CartContext } from '../../context/CartContext'; // Ajusta la ruta según la ubicación de tu contexto
+import './CartPage.css';
 
-function CartPage({ cartItems }) {
+function CartPage() {
+  const { cartItems, removeFromCart } = useContext(CartContext);
+
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  };
+
   return (
     <div className="cart-page-container">
       <div className="cart-page-header">
@@ -22,6 +29,9 @@ function CartPage({ cartItems }) {
                 <h4>{item.title}</h4>
                 <p>Price: ${item.price}</p>
                 <p>Quantity: {item.quantity}</p>
+                <button onClick={() => handleRemoveFromCart(item.id)}>
+                  Remove from Cart
+                </button>
               </div>
             </div>
           ))}

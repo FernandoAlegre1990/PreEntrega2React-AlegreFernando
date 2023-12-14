@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
 import { fetchProducts } from '../../data/api';
 import './ProductDetail.css';
 
-function ProductDetail({ addToCart }) {
+function ProductDetail() {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
   const [product, setProduct] = useState(null);
-  const [quantity, setQuantity] = useState(1); 
-  const [addedToCart, setAddedToCart] = useState(false); 
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
 
   useEffect(() => {
     async function fetchProductDetail() {
@@ -16,7 +18,7 @@ function ProductDetail({ addToCart }) {
         const selectedProduct = productsData.find(p => p.id === parseInt(id));
         setProduct(selectedProduct);
       } catch (error) {
-       
+        // Manejo de errores
       }
     }
 
@@ -30,8 +32,8 @@ function ProductDetail({ addToCart }) {
   const handleAddToCart = () => {
     const parsedQuantity = parseInt(quantity);
     const itemToAdd = { ...product, quantity: parsedQuantity };
-    addToCart(itemToAdd);
-    setAddedToCart(true); 
+    addToCart(itemToAdd); // Agregar el producto al carrito usando el contexto
+    setAddedToCart(true);
   };
 
   return (

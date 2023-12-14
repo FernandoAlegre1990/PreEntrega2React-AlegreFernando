@@ -1,40 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext'; // Ajusta la ruta según la ubicación de tu contexto
 import { fetchProducts } from '../../data/api';
-import { Link } from 'react-router-dom';
-import './Home.css'; 
-function ItemListContainer({ addToCart }) {
-  const [products, setProducts] = useState([]);
+import './Home.css';
 
-  const {categoryId} = useParams()
+function ItemListContainer() {
+  const [products, setProducts] = useState([]);
+  const { addToCart } = useContext(CartContext);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-
     async function fetchProductData() {
-
       try {
-
         const productsData = await fetchProducts(categoryId);
-
         setProducts(productsData);
-
       } catch (error) {
-
-        
-
+      
       }
-
     }
 
-
-
     fetchProductData();
-
   }, [categoryId]);
 
   return (
     <div>
-     
       <h3>Featured Products</h3>
       <div className="product-list">
         {products.map(product => (
@@ -49,15 +38,14 @@ function ItemListContainer({ addToCart }) {
             </button>
           </div>
         ))}
-      
       </div>
       <Link to="/cart" className="cart-link">
         View Cart
       </Link>
-         
     </div>
   );
 }
 
 export default ItemListContainer;
+
 
